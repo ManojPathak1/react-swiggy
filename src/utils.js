@@ -8,4 +8,11 @@ export const flatten = (...a) => {
   }
   flat(a);
   return result;
-}
+};
+
+export const clip = (arr, size) => {
+  const newArr = [];
+  size = Math.min(arr.length, size);
+  for (let i = 0; i < size; i++) newArr.push(arr[i]);
+  return newArr;
+};
