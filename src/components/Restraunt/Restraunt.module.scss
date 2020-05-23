@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  flex: 0 0 25%;
+  transition: 0.3s;
+  border: 1px #fff solid;
+  cursor: pointer;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    .name {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 3px 0;
+    }
+    .foodType {
+      font-size: 12px;
+      color: #777;
+      font-weight: 500;
+      margin: 3px 0;
+    }
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin: 3px 0;
+      font-size: 14px;
+      color: #777;
+      font-weight: 500;
+      align-items: center;
+
+      .rating {
+        background-color: green;
+        color: #fff;
+        font-size: 12px;
+        padding: 3px 8px;
+        border-radius: 3px;
+      }
+    }
+  }
+}
+
+.card:hover {
+  box-sizing: content-box;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}

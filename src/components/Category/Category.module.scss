@@ -1,0 +1,29 @@
+@import '../../commonStyles/variables.module.scss';
+
+.container {
+  border-bottom: 1px #eee solid;
+
+  h2 {
+    margin-left: 20px;
+  }
+
+  .restrauntList {
+  display: flex;
+  flex-wrap: wrap;
+
+  .showMore {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 5px;
+    flex: 0 0 25%;
+    justify-content: center;
+    align-items: center;
+    border: 1px $primary solid;
+    font-size: 25px;
+    color: $primary;
+    cursor: pointer;
+  }
+}
+}

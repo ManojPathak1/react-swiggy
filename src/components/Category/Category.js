@@ -1,18 +1,19 @@
 import React, { Fragment, useState } from "react";
+import s from './Category.module.scss';
 import Restraunt from "../Restraunt/Restraunt";
 import { clip } from "../../utils";
 
-function Category({ category }) {
+function Category({ category, showAll }) {
   const [limit, setLimit] = useState(5);
-  return <div>
-    <h1>{category.category}</h1>
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {clip(category.restaurantList, limit).map(restraunt => (
-        <Restraunt restraunt={restraunt} />
+  return <div id={category.category} className={s.container}>
+    <h2>{category.category}</h2>
+    <div className={s.restrauntList}>
+      {clip(category.restaurantList, showAll ? category.restaurantList.length : limit).map((restraunt, i) => (
+        <Restraunt key={i} restraunt={restraunt} />
       ))}
-      {category.restaurantList.length > limit && <Fragment>
-        <div onClick={() => setLimit(limit + 5)} style={{ border: "1px red solid", display: "flex", flexDirection: "column", margin: "20px", padding: "5px", flex: "0 0 25%" }}>
-          
+      {!showAll && category.restaurantList.length > limit && <Fragment>
+        <div className={s.showMore} onClick={() => setLimit(limit + 6)}>
+          <span>+ {category.restaurantList.length - limit} More</span>
         </div>
       </Fragment>}
     </div>

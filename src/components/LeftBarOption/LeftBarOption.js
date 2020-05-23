@@ -1,10 +1,12 @@
 import React from "react";
+import cx from 'classnames';
+import s from "./LeftBarOption.module.scss";
 
 function LeftBarOption({ value, label, numberOfRestraunts, selected, onChange }) {
-  return <div onClick={() => onChange(value)} style={{ border: "1px red solid", padding: "10px", background: selected === value ? "red": "#fff" }}>
-        <span>{label}</span>
-        <span>{numberOfRestraunts}</span>
-      </div>;
+  return <div className={cx({ [s.container]: true, [s.selected]: selected === value })} onClick={() => onChange(value)}>
+    <span>{label}</span>
+    <span className={cx({ [s.number]: true, [s.selectedNumber]: selected === value })}>{numberOfRestraunts}</span>
+  </div>;
 }
 
 export default LeftBarOption;
