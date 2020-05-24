@@ -1,6 +1,9 @@
+@import '../../commonStyles/variables.module.scss';
+
 .card {
   display: flex;
   flex-direction: column;
+  height: fit-content;
   margin: 20px;
   flex: 0 0 25%;
   transition: 0.3s;
@@ -10,7 +13,7 @@
   .details {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
 
     .name {
       font-size: 18px;
@@ -27,7 +30,7 @@
     div {
       display: flex;
       justify-content: space-between;
-      margin: 3px 0;
+      margin: 5px 0 10px 0;
       font-size: 14px;
       color: #777;
       font-weight: 500;
@@ -40,7 +43,27 @@
         padding: 3px 8px;
         border-radius: 3px;
       }
+
+      .dot {
+        height: 2px;
+        width: 2px;
+        background-color: #777;
+        border-radius: 50%;
+        display: inline-block;
+      }
     }
+    .quickView {
+      display: flex;
+      justify-content: center;
+      border-top: 1px #eee solid;
+      padding-top: 12px;
+      padding-bottom: 4px;
+      color: $blue;
+      font-weight: bold;
+    }
+    .quickViewHide {
+      visibility: hidden;
+    } 
   }
 }
 
