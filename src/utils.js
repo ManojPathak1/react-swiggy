@@ -26,3 +26,9 @@ export const debounce = (cb, delay) => {
     }, delay);
   }
 };
+
+export const findLast = (arr, cb) => {
+  let searchedElement;
+  for (const e of arr) if (cb(e)) searchedElement = e;
+  return searchedElement;
+};

@@ -3,7 +3,7 @@ import s from './Home.module.scss';
 import LeftBar from "../../components/LeftBar/LeftBar";
 import List from "../../components/List/List";
 import { allData } from "../../mockData";
-import { flatten, debounce } from "../../utils";
+import { flatten, debounce, findLast } from "../../utils";
 
 function Home() {
   const [categoryWiseData, setCategoryWiseData] = useState([]);
@@ -20,7 +20,7 @@ function Home() {
       [...allData, { category: "Only on Swiggy", restaurantList: swiggyRestraunts }];
     const onScrollEvent = debounce(() => {
       const allCategories = _categoryWiseData.map(e => e.category);
-      const _selectedCategory = allCategories.find(category => {
+      const _selectedCategory = findLast(allCategories, category => {
         const categoryElement = document.getElementById(category);
         if (categoryElement) {
           const bounding = categoryElement.getBoundingClientRect();
