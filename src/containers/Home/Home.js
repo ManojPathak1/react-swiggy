@@ -62,11 +62,13 @@ function Home() {
     setLeftBarOptions(_leftBarOptions);
   }, []);
   const onChangeLeftBarOption = value => {
+    (selectedCategory === 'See All') && setSelectedCategory(value);
+    (value === 'See All') && setSelectedCategory(value);
     setTimeout(() => {
       if (value === "See All") window.scrollTo(0, 0);
       else {
         const element = document.getElementById(value);
-        element.scrollIntoView({ behavior: "smooth" });
+        element.scrollIntoView({ behavior: selectedCategory === 'See All' ? "auto" : "smooth" });
       }
     });
   };

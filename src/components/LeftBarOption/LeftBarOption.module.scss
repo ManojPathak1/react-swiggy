@@ -5,6 +5,8 @@
   flex-direction: column;
   padding: 20px 30px;
   cursor: pointer;
+  transition-timing-function: ease-in;
+  transition: 0.3s;
   .number {
     font-size: 12px;
     font-weight: 500;
@@ -17,7 +19,14 @@
 }
 
 .selected {
+  font-size: 18px;
+  font-weight: 500;
+  width: 160px;
   background-color: $primary;
   color: $white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  .number {
+    font-size: 14px;
+    font-weight: 500;
+  }
 }
