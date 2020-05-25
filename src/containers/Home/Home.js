@@ -3,7 +3,7 @@ import s from './Home.module.scss';
 import LeftBar from "../../components/LeftBar/LeftBar";
 import List from "../../components/List/List";
 import { allData } from "../../mockData";
-import { flatten } from "../../utils";
+import { flatten, debounce } from "../../utils";
 
 function Home() {
   const [categoryWiseData, setCategoryWiseData] = useState([]);
@@ -11,7 +11,6 @@ function Home() {
   const [allRestraunts, setAllRestraunts] = useState(allData);
   const [leftBarOptions, setLeftBarOptions] = useState([]);
   useEffect(() => {
-    window.onscroll = event => {};
     const swiggyRestraunts = flatten(allData.reduce((acc, e) => {
       const restaurantList = e.restaurantList.filter(e => e.isExlusive);
       acc.push(restaurantList);
@@ -19,6 +18,23 @@ function Home() {
     }, []));
     const _categoryWiseData =
       [...allData, { category: "Only on Swiggy", restaurantList: swiggyRestraunts }];
+    const onScrollEvent = debounce(() => {
+      const allCategories = _categoryWiseData.map(e => e.category);
+      const _selectedCategory = allCategories.find(category => {
+        const categoryElement = document.getElementById(category);
+        if (categoryElement) {
+          const bounding = categoryElement.getBoundingClientRect();
+          const clientHeight = window.innerHeight || document.documentElement.clientHeight;
+          return (bounding.top >= 0 && bounding.top <= clientHeight)
+            || (bounding.bottom > 0 && bounding.bottom <= clientHeight)
+            || (bounding.top <= 0 && bounding.bottom >= clientHeight);
+        }
+        return false;
+      });
+      _selectedCategory && setSelectedCategory(_selectedCategory);
+    }, 100);
+    onScrollEvent();
+    window.onscroll = onScrollEvent;
     const _allRestraunts = flatten(allData.map(category => category.restaurantList));
     const _leftBarOptions =
       allData.map(category => ({
@@ -44,7 +60,6 @@ function Home() {
     setCategoryWiseData(_categoryWiseData);
     setAllRestraunts([{ category: "All Restraunts", restaurantList: _allRestraunts }]);
     setLeftBarOptions(_leftBarOptions);
-    setSelectedCategory(_categoryWiseData[0].category);
   }, []);
   const onChangeLeftBarOption = value => {
     setSelectedCategory(value);

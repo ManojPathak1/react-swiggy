@@ -16,3 +16,13 @@ export const clip = (arr, size) => {
   for (let i = 0; i < size; i++) newArr.push(arr[i]);
   return newArr;
 };
+
+export const debounce = (cb, delay) => {
+  let timerId;
+  return (...args) => {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      cb.apply(null, args);
+    }, delay);
+  }
+};
