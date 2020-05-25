@@ -32,7 +32,7 @@ function Home() {
         return false;
       });
       _selectedCategory && setSelectedCategory(_selectedCategory);
-    }, 100);
+    }, 0);
     onScrollEvent();
     window.onscroll = onScrollEvent;
     const _allRestraunts = flatten(allData.map(category => category.restaurantList));
