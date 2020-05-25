@@ -62,7 +62,6 @@ function Home() {
     setLeftBarOptions(_leftBarOptions);
   }, []);
   const onChangeLeftBarOption = value => {
-    setSelectedCategory(value);
     setTimeout(() => {
       if (value === "See All") window.scrollTo(0, 0);
       else {
