@@ -8,14 +8,16 @@ function Restraunt({ restraunt }) {
   const imageSrc = useRef(images[Math.floor(Math.random() * 11)]);
   const imageRef = useRef(null);
   const [image, setImage] = useState("");
+  const [showImage, setShowImage] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
-      entries[0].isIntersecting && setImage(imageSrc.current);
+      if (entries[0].isIntersecting) setImage(imageSrc.current);
     }, { threshold: 0.1 });
     observer.observe(imageRef.current);
   }, []);
   return <div onMouseEnter={() => setShowQuickView(true)} onMouseLeave={() => setShowQuickView(false)} className={s.card}>
-    <img ref={imageRef} alt="" src={image} height="250px" width="300px" />
+    <div className={cx({ [s.imagePlaceholder]: true, [s.placeholderBackground]: !showImage })}></div>
+    <img onLoad={() => setShowImage(true)} ref={imageRef} alt="" src={image} height="250px" width="300px" />
     <div className={s.details}>
       <span className={s.name}>{restraunt.name}</span>
       <span className={s.foodType}>{restraunt.food_types.join(", ")}</span>

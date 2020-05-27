@@ -10,6 +10,16 @@
   border: 1px #fff solid;
   cursor: pointer;
 
+  .imagePlaceholder {
+    height: 250px;
+    width: 300px;
+    position: absolute
+  }
+
+  .placeholderBackground {
+    background-color: rgb(247, 247, 247);
+  }
+
   .details {
     display: flex;
     flex-direction: column;
