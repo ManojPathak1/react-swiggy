@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-swiggy/static/css/main.3d7c29bb.chunk.css",
-    "main.js": "/react-swiggy/static/js/main.2cd3c6ec.chunk.js",
-    "main.js.map": "/react-swiggy/static/js/main.2cd3c6ec.chunk.js.map",
+    "main.js": "/react-swiggy/static/js/main.b03a2db0.chunk.js",
+    "main.js.map": "/react-swiggy/static/js/main.b03a2db0.chunk.js.map",
     "runtime-main.js": "/react-swiggy/static/js/runtime-main.028082cf.js",
     "runtime-main.js.map": "/react-swiggy/static/js/runtime-main.028082cf.js.map",
-    "static/js/2.596e0529.chunk.js": "/react-swiggy/static/js/2.596e0529.chunk.js",
-    "static/js/2.596e0529.chunk.js.map": "/react-swiggy/static/js/2.596e0529.chunk.js.map",
+    "static/js/2.d18d9514.chunk.js": "/react-swiggy/static/js/2.d18d9514.chunk.js",
+    "static/js/2.d18d9514.chunk.js.map": "/react-swiggy/static/js/2.d18d9514.chunk.js.map",
     "index.html": "/react-swiggy/index.html",
-    "precache-manifest.d0571aa4e4e7bd3850468d086d75a8d9.js": "/react-swiggy/precache-manifest.d0571aa4e4e7bd3850468d086d75a8d9.js",
+    "precache-manifest.6631b640808011c68a4b8ad3606d1d2a.js": "/react-swiggy/precache-manifest.6631b640808011c68a4b8ad3606d1d2a.js",
     "service-worker.js": "/react-swiggy/service-worker.js",
     "static/css/main.3d7c29bb.chunk.css.map": "/react-swiggy/static/css/main.3d7c29bb.chunk.css.map",
-    "static/js/2.596e0529.chunk.js.LICENSE.txt": "/react-swiggy/static/js/2.596e0529.chunk.js.LICENSE.txt"
+    "static/js/2.d18d9514.chunk.js.LICENSE.txt": "/react-swiggy/static/js/2.d18d9514.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.028082cf.js",
-    "static/js/2.596e0529.chunk.js",
+    "static/js/2.d18d9514.chunk.js",
     "static/css/main.3d7c29bb.chunk.css",
-    "static/js/main.2cd3c6ec.chunk.js"
+    "static/js/main.b03a2db0.chunk.js"
   ]
 }
