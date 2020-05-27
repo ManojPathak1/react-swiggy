@@ -1,4 +1,4 @@
-import React, { memo, useState, useRef } from "react";
+import React, { memo, useState, useRef, useEffect } from "react";
 import cx from 'classnames';
 import s from './Restraunt.module.scss';
 import { images } from "../../mockData";
@@ -6,8 +6,16 @@ import { images } from "../../mockData";
 function Restraunt({ restraunt }) {
   const [showQuickView, setShowQuickView] = useState(false);
   const imageSrc = useRef(images[Math.floor(Math.random() * 11)]);
+  const imageRef = useRef(null);
+  const [image, setImage] = useState("");
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries[0].isIntersecting && setImage(imageSrc.current);
+    }, { threshold: 0.1 });
+    observer.observe(imageRef.current);
+  }, []);
   return <div onMouseEnter={() => setShowQuickView(true)} onMouseLeave={() => setShowQuickView(false)} className={s.card}>
-    <img alt="" src={imageSrc.current} height="250px" width="300px" />
+    <img ref={imageRef} alt="" src={image} height="250px" width="300px" />
     <div className={s.details}>
       <span className={s.name}>{restraunt.name}</span>
       <span className={s.foodType}>{restraunt.food_types.join(", ")}</span>
