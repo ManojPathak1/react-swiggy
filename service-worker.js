@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/react-swiggy/precache-manifest.ac603f5962a4a3649f3e3b68773aaaea.js"
+  "/react-swiggy/precache-manifest.e8a0551fb956b2b28fd91b073ed5b684.js"
 );
 
 self.addEventListener('message', (event) => {
