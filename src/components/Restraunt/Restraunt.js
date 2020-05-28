@@ -10,10 +10,14 @@ function Restraunt({ restraunt }) {
   const [image, setImage] = useState("");
   const [showImage, setShowImage] = useState(false);
   useEffect(() => {
+    const imageRefCopy = imageRef.current;
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) setImage(imageSrc.current);
     }, { threshold: 0.1 });
-    observer.observe(imageRef.current);
+    observer.observe(imageRefCopy);
+    return () => {
+      observer.unobserve(imageRefCopy);
+    }
   }, []);
   return <div onMouseEnter={() => setShowQuickView(true)} onMouseLeave={() => setShowQuickView(false)} className={s.card}>
     <div className={cx({ [s.imagePlaceholder]: true, [s.placeholderBackground]: !showImage })}></div>
