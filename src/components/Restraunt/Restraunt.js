@@ -1,6 +1,6 @@
 import React, { memo, useState, useRef, useEffect } from "react";
 import cx from 'classnames';
-import s from './Restraunt.module.scss';
+import s from './Restraunt.scss';
 import { images } from "../../mockData";
 
 function Restraunt({ restraunt }) {
