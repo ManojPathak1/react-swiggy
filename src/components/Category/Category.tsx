@@ -4,7 +4,7 @@ import Restraunt from "../Restraunt/Restraunt";
 import { clip } from "../../utils";
 import IRestaurant from '../../ts/interfaces/IRestaurant';
 
-interface ICategoryProps {
+interface Props {
   category: {
     category: string,
     restaurantList: IRestaurant[]
@@ -12,9 +12,9 @@ interface ICategoryProps {
   showAll: boolean
 }
 
-function Category({ category, showAll }: ICategoryProps) {
+const Category: React.FC<Props> = memo(({ category, showAll }) => {
   const [limit, setLimit] = useState(5);
-  const paginationRef = useRef(null);
+  const paginationRef: any = useRef(null);
   useEffect(() => {
     setLimit(showAll ? 9 : 5);
     if (!showAll) return undefined;
@@ -31,10 +31,10 @@ function Category({ category, showAll }: ICategoryProps) {
       paginationObserver.unobserve(paginationRefCopy);
     };
   }, [showAll]);
-  const restaurantListLength = category.restaurantList.length;
-  const showAddMore = !showAll && restaurantListLength > limit;
-  const limitedRestraunts = clip(category.restaurantList, limit);
-  const addMoreCount = restaurantListLength - limit;
+  const restaurantListLength: number = category.restaurantList.length;
+  const showAddMore: boolean = !showAll && restaurantListLength > limit;
+  const limitedRestraunts: IRestaurant[] = clip(category.restaurantList, limit);
+  const addMoreCount: number = restaurantListLength - limit;
   return (
     <div id={category.category} className={s.container}>
       <h2>{category.category}</h2>
@@ -51,6 +51,6 @@ function Category({ category, showAll }: ICategoryProps) {
       {!showAddMore && <div ref={paginationRef}></div>}
     </div>
   );
-}
+});
 
-export default memo(Category);
+export default Category;
